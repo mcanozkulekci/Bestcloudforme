@@ -4,12 +4,10 @@ from flask import request,jsonify,url_for
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
-name = [
-    {'firstname': 'mehmetcan',
-     'lastname': 'ozkulekci'
-     },
+name ={'firstname': None,
+     'lastname': None}
 
-]
+
 
 @app.route('/', methods=['GET'])
 def home():
@@ -18,6 +16,9 @@ def home():
 
 @app.route('/whoami',methods=['GET'])
 def whoami():
+    name["firstname"] = request.args.get('firstname')
+    name["lastname"] = request.args.get('lastname')
+
     return jsonify(name)
 
 @app.route('/alert',methods=['POST'])
