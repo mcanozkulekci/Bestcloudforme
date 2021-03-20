@@ -2,7 +2,7 @@ import requests
 import json
 
 
-webhook_url = 'https://webhook.site/45801a49-a6f2-4802-bd56-ad8b61a475b7'
+webhook_url = 'https://webhook.site/ce78ca44-ecf6-439e-88a8-c3c46967e7ea'
 data = {'firstname': 'mehmetcan',
         'lastname': 'ozkulekci'}
 

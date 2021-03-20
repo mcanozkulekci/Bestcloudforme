@@ -6,7 +6,7 @@ import requests
 from webhook import data
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+
 
 
 
@@ -31,4 +31,4 @@ def alert():
         abort(400)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host ='0.0.0.0', port = 5001, debug = True)
