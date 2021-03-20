@@ -1,11 +1,12 @@
 import flask
-from flask import request,jsonify,url_for
-
+from flask import request,jsonify,Response,abort
+import json
+import logging
+import requests
+from webhook import data
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
-name ={'firstname': None,
-     'lastname': None}
 
 
 
@@ -16,13 +17,18 @@ def home():
 
 @app.route('/whoami',methods=['GET'])
 def whoami():
-    name["firstname"] = request.args.get('firstname')
-    name["lastname"] = request.args.get('lastname')
+    data["firstname"] = request.args.get('firstname')
+    data["lastname"] = request.args.get('lastname')
 
-    return jsonify(name)
+    return jsonify(data)
 
 @app.route('/alert',methods=['POST'])
 def alert():
-    return jsonify(name)
+    if request.method == 'POST':
+        print(request.json)
+        return 'success', 200
+    else:
+        abort(400)
 
-app.run()
+if __name__ == '__main__':
+    app.run()
