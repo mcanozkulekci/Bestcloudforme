@@ -3,10 +3,12 @@ from flask import request,jsonify,Response,abort
 import json
 import logging
 import requests
-from webhook import data
 
 app = flask.Flask(__name__)
 
+webhook_url = '	https://webhook.site/ce78ca44-ecf6-439e-88a8-c3c46967e7ea'
+data = {'firstname': 'mehmetcan',
+        'lastname': 'ozkulekci'}
 
 
 
@@ -17,18 +19,23 @@ def home():
 
 @app.route('/whoami',methods=['GET'])
 def whoami():
-    data["firstname"] = request.args.get('firstname')
-    data["lastname"] = request.args.get('lastname')
-
-    return jsonify(data)
+    if request.method == 'GET':
+        data["firstname"] = request.args.get('firstname')
+        data["lastname"] = request.args.get('lastname')
+        return jsonify(data)
 
 @app.route('/alert',methods=['POST'])
 def alert():
     if request.method == 'POST':
         print(request.json)
+        request_data = request.get_json()
+        data = request_data
+        r = requests.post(webhook_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+        
         return 'success', 200
     else:
         abort(400)
 
 if __name__ == '__main__':
-    app.run(host ='0.0.0.0', port = 5001, debug = True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+    
