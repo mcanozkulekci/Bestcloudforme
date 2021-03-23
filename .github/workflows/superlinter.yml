@@ -28,7 +28,7 @@ jobs:
           context: ./
           file: ./api/Dockerfile
           push: true
-          tags: ${{secrets.DOCKER_HUB_USERNAME}}/gitahubctionsci:latest
+          tags: ${{secrets.DOCKER_HUB_USERNAME}}/githubctionsci:latest
 
       - name: Image digest
         run: echo${{ steps.docker_build.output.digest}}
