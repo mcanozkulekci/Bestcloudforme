@@ -6,7 +6,7 @@ import requests
 
 app = flask.Flask(__name__)
 
-webhook_url = '	https://webhook.site/ce78ca44-ecf6-439e-88a8-c3c46967e7ea'
+webhook_url = '	https://webhook.site/45801a49-a6f2-4802-bd56-ad8b61a475b7'
 data = {'firstname': 'mehmetcan',
         'lastname': 'ozkulekci'}
 
