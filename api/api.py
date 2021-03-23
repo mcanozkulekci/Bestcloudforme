@@ -3,8 +3,10 @@ from flask import request,jsonify,Response,abort
 import json
 import logging
 import requests
+import os
 
 app = flask.Flask(__name__)
+url = os.getenv('URL_WHOOK')
 
 webhook_url = '	https://webhook.site/45801a49-a6f2-4802-bd56-ad8b61a475b7'
 data = {'firstname': 'mehmetcan',
