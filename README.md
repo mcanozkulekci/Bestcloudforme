@@ -12,7 +12,7 @@ $ sudo docker build -t <IMAGE NAME> .
 ```
 
 ## Running Container
-Here, if you run the image, you need to add your specific Webhook URL into <DUMMY WHOOK> part of the command. For example : --env URL_WHOOK = "http://webhook.site/...etc"
+Here when you run the image as container, you need to add your specific Webhook URL into <DUMMY WHOOK> part of the command. For example : --env URL_WHOOK = "http://webhook.site/...etc"
 ```bash
 $ sudo docker run --name <CONTAINER NAME> --env URL_WHOOK=<DUMMY WHOOK> -p <DESIRED PORT>:5000 -d <IMAGE NAME>
 ```
