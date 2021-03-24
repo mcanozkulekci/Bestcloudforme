@@ -8,7 +8,7 @@ import os
 app = flask.Flask(__name__)
 url = os.getenv('URL_WHOOK')
 
-webhook_url = '	https://webhook.site/45801a49-a6f2-4802-bd56-ad8b61a475b7'
+
 data = {'firstname': 'mehmetcan',
         'lastname': 'ozkulekci'}
 
@@ -32,7 +32,7 @@ def alert():
         print(request.json)
         request_data = request.get_json()
         data = request_data
-        r = requests.post(webhook_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+        r = requests.post(url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
         
         return 'success', 200
     else:

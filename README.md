@@ -20,11 +20,6 @@ $ sudo docker run --name <CONTAINER NAME> --env URL_WHOOK=<DUMMY WHOOK> -p <DESI
 
 
 ## For POST Request into Webhook.site
-You need to change your Webhook URL. In the api.py, I added of mine.
-```
-webhook_url = '	https://webhook.site/45801a49-a6f2-4802-bd56-ad8b61a475b7'
-```
-POST Request Command
 
 ```
 curl --header "Content-Type: application/json" --request POST --data '{"firstname":"mehmetcan","lastname":"ozkulekci"}' http://localhost:<DESIRED PORT>/alert
