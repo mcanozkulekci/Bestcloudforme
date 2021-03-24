@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bestcloudforme
+  template:
+    metadata:
+      labels:
+        app: bestcloudforme
+    spec:
+      containers:
+      - name: flaskapp
+        image: mcanozkulekci/githubctionsci:latest
+        env:
+        - name: URL_WHOOK
+          value: "https://webhook.site/45801a49-a6f2-4802-bd56-ad8b61a475b7"
