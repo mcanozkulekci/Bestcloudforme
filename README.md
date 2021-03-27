@@ -61,4 +61,4 @@ kubectl create -f ./kubernetes/ingress-gke.yaml
 
 ```
 ## Accessing Final Website
-http://34.116.205.106:5000/whoami?firstname=Mehmetcan&lastname=Ozkulekci
+http://34.116.205.106:5000/whoami?firstname=Mehmetcan&lastname=Ozkulekci -> I have disabled this link because of billing issues. During the presentations, I will active it again.
